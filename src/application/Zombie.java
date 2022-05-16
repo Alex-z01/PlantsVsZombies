@@ -1,9 +1,20 @@
 package application;
 
-public class Zombie {
-	public int speed = 1;
-	public int maxHP = 100;
-	public int currentHP;
-	public int value = 1;
+import java.util.Random;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+public class Zombie { 
 	
+	public int posX, posY;
+	public int value = 10;
+
+    public Zombie() {
+    	BufferedImage img = null;
+        Random rand = new Random();
+        posX = rand.nextInt(11,13);
+        posY = rand.nextInt(5);
+    }
 }

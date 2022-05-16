@@ -4,10 +4,17 @@ import javafx.scene.shape.Rectangle;
 
 public class Block {
 	public enum Status { Empty, Filled };
+	public enum FillType { None, Plant, Zombie };
 	
 	public Status status;
+	public FillType type;
 	public int[] position;
+	public String plant, zombie;
 	public Rectangle rect = new Rectangle(95,95);
+	public boolean hasBullet, hasZombie;
+	
+	public Bullet bulletOBJ;
+	public Zombie zombieOBJ;
 	
 	public Block() {};
 	
@@ -19,6 +26,6 @@ public class Block {
 	
 	public void OnClick(int id)
 	{
-		System.out.println(status.toString() + " regular block " + id);
+		System.out.println(type + " " + zombieOBJ + " " + bulletOBJ + " block, id: " + id + " bullet: " + hasBullet + " zombie: " + hasZombie);
 	}
 }
