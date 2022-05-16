@@ -2,7 +2,7 @@ package application;
 
 import javafx.scene.shape.Rectangle;
 
-public class Block {
+public class Block implements java.io.Serializable {
 	public enum Status { Empty, Filled };
 	public enum FillType { None, Plant, Zombie };
 	
@@ -10,6 +10,7 @@ public class Block {
 	public FillType type;
 	public int[] position;
 	public String plant, zombie;
+	
 	public Rectangle rect = new Rectangle(95,95);
 	public boolean hasBullet, hasZombie;
 	

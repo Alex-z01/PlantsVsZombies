@@ -1,5 +1,8 @@
 package application;
 	
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -381,7 +384,17 @@ public class Main extends Application implements EventHandler<KeyEvent> {
 		String code = event.getCode().toString();
 		switch(code) {
 			case "S":
-				System.out.println("Save");
+				try {
+			        FileOutputStream fileOut =
+			        new FileOutputStream("/tmp/savedata.ser");
+			        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			        out.writeObject(blocks);
+			        out.close();
+			        fileOut.close();
+			        System.out.printf("Serialized data is saved in /savedata.ser");
+			     } catch (IOException i) {
+			        i.printStackTrace();
+			     }
 				break;
 			case "R":
 				System.out.println("Restart");
